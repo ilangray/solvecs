@@ -2,3 +2,4 @@ node_modules/
 .sass_cache
 bower_components/
 bootstrap/
+letters/

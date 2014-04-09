@@ -1,41 +1,44 @@
-/* line 2, ../sass/index.scss */
+/* worst stylesheet ever
+ "kill me now" ~ this stylesheet
+*/
+/* line 5, ../sass/index.scss */
 .jumbotron {
   padding: 30px;
 }
-/* line 6, ../sass/index.scss */
+/* line 9, ../sass/index.scss */
 .jumbotron.mission h2 {
   display: inline;
 }
-/* line 12, ../sass/index.scss */
+/* line 15, ../sass/index.scss */
 .jumbotron.help #letter {
   text-align: left;
 }
-/* line 15, ../sass/index.scss */
+/* line 18, ../sass/index.scss */
 .jumbotron.help #letter p {
   font-size: 15px;
   line-height: 130%;
 }
-/* line 21, ../sass/index.scss */
+/* line 24, ../sass/index.scss */
 .jumbotron.help textarea {
   height: 200px;
   margin: 20px 0px;
 }
-/* line 27, ../sass/index.scss */
+/* line 30, ../sass/index.scss */
 .jumbotron.help input, .jumbotron.help select {
   display: inline;
 }
-/* line 31, ../sass/index.scss */
+/* line 34, ../sass/index.scss */
 .jumbotron.help #dont-worry, .jumbotron.help #edit {
   color: gray;
   font-style: italic;
 }
-/* line 37, ../sass/index.scss */
+/* line 40, ../sass/index.scss */
 .jumbotron.help p.inline input {
   background-color: transparent;
   border: none;
   border-bottom: 1px solid gray;
 }
-/* line 44, ../sass/index.scss */
+/* line 47, ../sass/index.scss */
 .jumbotron.help input {
   height: 30px;
   font-size: 15px;
@@ -43,21 +46,21 @@
   width: 150px;
   text-align: center;
 }
-/* line 57, ../sass/index.scss */
+/* line 60, ../sass/index.scss */
 .jumbotron.help #sender {
   width: 100%;
 }
-/* line 61, ../sass/index.scss */
+/* line 64, ../sass/index.scss */
 .jumbotron.help #error-msg {
   display: none;
   color: red;
 }
-/* line 66, ../sass/index.scss */
+/* line 69, ../sass/index.scss */
 .jumbotron.help #edit {
   display: none;
   text-align: center;
 }
-/* line 72, ../sass/index.scss */
+/* line 75, ../sass/index.scss */
 .jumbotron #feedback {
   margin-top: 10px;
 }

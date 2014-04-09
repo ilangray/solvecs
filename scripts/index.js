@@ -43,8 +43,8 @@ $(document).ready(function () {
 			return;
 		}
 
-		// console.log(data.body)
-		// return console.log("Not actually sending emails right now");
+		console.log(data.body)
+		return console.log("Not actually sending emails right now");
 
 		$("#send").addClass("disabled");
 		Parse.Cloud.run("send", data, {
