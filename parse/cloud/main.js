@@ -10,6 +10,7 @@ var Mandrill = require('mandrill');
 Mandrill.initialize('HYY4iULl5EHZ-q2-0aFjDg');
 
 Parse.Cloud.define("send", function(request, response) {
+  // send email
   Mandrill.sendEmail({
     message: {
       text: request.params.body,
@@ -44,5 +45,12 @@ Parse.Cloud.define("send", function(request, response) {
       console.error(httpResponse);
       response.error("Uh oh, something went wrong!");
     }
+  });
+
+  // insert a record of email
+  var object = new Parse.Object("Email");
+  object.save({
+    email: request.params.sender,
+    name: request.params.name
   });
 });
