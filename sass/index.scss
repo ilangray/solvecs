@@ -57,11 +57,7 @@
 		#sender {
 			width: 100%;
 		}
-
-		.text {
-			display: none;
-		}
-
+		
 		#error-msg {
 			display:none;
 			color: red;
@@ -71,5 +67,9 @@
 			display: none;
 			text-align: center;
 		}
+	}
+
+	#feedback {
+		margin-top: 10px;
 	}
 }

@@ -1,17 +1,30 @@
+// returns the selector to get the body of the email
+function letterSelector() {
+	majorHidden = $("#major-text").hasClass("hidden")
+	return majorHidden ? "#non-major-text" : "#major-text";
+}
+
 $(document).ready(function () {
 	// fires on unfocus. remove the error class
 	$("#sender").change(function (e) {
 		$("#sender-group").removeClass("has-error");
 	})
 
-	var body = '';
-
 	function fullName() {
 		return $("#first-name").val() + " " + $("#last-name").val();
 	};
 
 	function emailBody(sel) {
-		return _.map($("#salutation, " + sel + " p"), function (el) { return $(el).text().trim(); }).join("\n\n");
+		var b = _.map($(sel + " p"), function (el) { return $(el).text().trim(); }).join("\n\n");
+		if (!b) {
+			return null;
+		}
+
+		var name = "My name is " + fullName() + " and I am a " + $("#class").val() + " majoring in " + $("#major").val() + ".";
+		var salute = $("#salutation").text();
+		var sig = $("#signature").text();
+
+		return [salute.trim(), name.trim(), b, sig.trim()].join("\n\n");
 	};
 
 	// register handler for our one, beautiful button
@@ -19,7 +32,7 @@ $(document).ready(function () {
 		e.preventDefault();
 
 		var data = {
-			body: body,
+			body: emailBody(letterSelector()),
 			sender: $("#sender").val(),
 			name: fullName(),
 		};
@@ -30,15 +43,25 @@ $(document).ready(function () {
 			return;
 		}
 
-		console.log("emailBody = ", body);
-		return console.log("Not actually sending emails right now");
+		// console.log(data.body)
+		// return console.log("Not actually sending emails right now");
 
+		$("#send").addClass("disabled");
 		Parse.Cloud.run("send", data, {
 			success: function (result) {
-				console.log("SUCCESSFUL, BIIIITCHES");
+				console.log("great success");
+
+				$("#feedback").text("Successfully sent. El Prez should be responding any minute now...");
+				$("#feedback").removeClass("hidden").addClass("alert-success");
+				$("#send").addClass("hidden")
 			},
 			error: function (error) {
-				console.log("Pooping out with error = ", error);
+				console.log("to err is human. err = ", error);
+
+				$("#feedback").text("Error in sending message: " + error + ". Please contact Tufts facilities M-F 9am-5pm at (617) 627-3496")
+				$("#feedback").removeClass("hidden").addClass("alert-error");
+
+				$("#send").removeClass("disabled hidden")
 			}	
 		})
 	})
@@ -47,27 +70,21 @@ $(document).ready(function () {
 
 	// detect when someone is done typing their major, display appropriate letter
 	$("#major").bind('input', function () {
-		$("#dont-worry").css("display", "none");
-		$("#edit").css("display", "block");
+		$("#dont-worry").addClass("hidden");
+		$("#edit").removeClass("hidden")
 		var major = $(this).val().toLowerCase();
 		if (_.contains(acceptableMajors, major)) {
-			$("#major-text").css("display", "inline");
-			$("#non-major-text").css("display", "none");
-			body = emailBody("#major-text");
+			$("#major-text").removeClass("hidden")
+			$("#non-major-text").addClass("hidden")
 		} else {
-			$("#non-major-text").css("display", "inline");
-			$("#major-text").css("display", "none");
-			body = emailBody("#non-major-text");
+			$("#non-major-text").removeClass("hidden")
+			$("#major-text").addClass("hidden")
 		}
-
-		console.log("emailBody = ", emailBody());
-	})
+		$("#signature").removeClass("hidden")
+	});
 
 	// add signature
 	$("#first-name, #last-name").focusout(function() {
 		$("#signature").text(fullName());
-	})
-
-
-
+	});
 })

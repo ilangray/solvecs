@@ -48,16 +48,16 @@
   width: 100%;
 }
 /* line 61, ../sass/index.scss */
-.jumbotron.help .text {
-  display: none;
-}
-/* line 65, ../sass/index.scss */
 .jumbotron.help #error-msg {
   display: none;
   color: red;
 }
-/* line 70, ../sass/index.scss */
+/* line 66, ../sass/index.scss */
 .jumbotron.help #edit {
   display: none;
   text-align: center;
+}
+/* line 72, ../sass/index.scss */
+.jumbotron #feedback {
+  margin-top: 10px;
 }

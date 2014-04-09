@@ -18,14 +18,19 @@ Parse.Cloud.define("send", function(request, response) {
       from_name: "Solve CS",
       to: [
         {
-          email: "solve.computer.science@gmail.com",
-          name: "Solve CS",
+          email: "Anthony.Monaco@tufts.edu",
+          name: "Anthony Monaco",
           type: "to"
         },
         {
           email: request.params.sender,
           name: request.params.name,
           type: "cc"
+        },
+        {
+          email: "David.Harris@tufts.edu",
+          name: "David Harris",
+          type: "to"
         }
       ]
     },

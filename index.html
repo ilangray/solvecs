@@ -17,6 +17,7 @@
 	<script type="text/javascript" src="lib/parse.js"></script>
 	<script type="text/javascript" src="lib/underscore.js"></script>
 	<script type="text/javascript" src="scripts/index.js"></script>
+	<script type="text/javascript" src="scripts/parseinit.js"></script>
 
 </head>
 
@@ -50,7 +51,7 @@
       							<input id="first-name" placeholder="First Name" required> 
       							<input id="last-name" placeholder="Last Name" required> 
       						and I am a 
-      							<select class="">
+      							<select id="class">
       								<option>Class</option>
       								<option>Freshman</option>
       								<option>Sophomore</option>
@@ -71,7 +72,7 @@
       					<div id="dont-worry">
       						Don't worry, we made this easy and wrote a letter for you! Enter your information to see it.
       					</div>
-      					<div class="text" id="major-text" contenteditable="true">
+      					<div class="hidden" id="major-text" contenteditable="true">
       						<p>My time in Halligan Hall and Computer Science has been phenomenal. I have learned amazing skills and made even better friendships. Over the last few semesters, I have been impressed by the increase in the diversity of students in the major and in Halligan in general.</p>
 
       						<p>Recently, I have heard significant dismay and frustration from many students who wish to, but cannot, take more Computer Science courses. My greatest concern is that the richness and diversity of this community is being threatened by the new registration policy. Studies have shown that raising the barrier to entry for Computer Science classes disproportionately discourages enrollment of women as well as men without computational backgrounds. Based on my understanding of the new registration policy, I question how new students will be able to join our community.</p>
@@ -85,12 +86,24 @@
       						<p>Please act with alacrity to address this growing problem.</p>
 
 							<p>All the best,</p>
-
-							<p id="signature"></p>
       					</div>
-      					<div class="text" id="non-major-text">
+      					<div class="hidden" id="non-major-text" contenteditable="true">
       						<p>Computer Science is a field I really want to explore more. Laptops, phones, and tablets affect my life tens to hundreds of times a day. I want to know more about them beyond their usage. I want to create with them and understand them. I always thought that an education at a liberal arts university meant that I could take classes in whatever fields captured my curiosity. I do not see how it is possible to maintain the spirit of a liberal arts education if Computer Science classes are restricted to majors.</p>
+
+      						<p>I am currently unable to register for at least one Computer Science class. I am not a major, but I believe anyone at Tufts should be able to take any number of Computer Science classes without majoring or minoring in CS. Many majors did not declare until after they had taken a few CS classes. What if I haven't tried enough CS to know if its for me?</p>
+
+      						<p>Halligan seems like a really fun and happening place (at least that’s what my CS major friends tell me). I feel I am now cut off from being a member of such a vibrant and diverse community. Taking CS classes would greatly help me as I head out into the professional world. Every Tufts student should have the opportunity to gain these skills and background knowledge that are integral to our information society.</p>
+      						
+      						<p>I believe CS classes teach much more than just coding. They teach how to be a builder, a problem-solver, a logical and creative thinker who can adapt to tomorrow's opportunities and challenges today. With the new registration policy, I can no longer be a part of this growth and learning. </p>
+
+							<p>Please act with alacrity to address this growing problem.</p>
+
+      						<p>All the best,</p>
+
+							<!-- <p id="signature"></p> -->
       					</div>
+
+      					<p id="signature" class='hidden'></p>
       				</div>
       				<div class='form-group' id='sender-group'>
       					<input type="text" class="form-control" placeholder="Your Tufts email" id="sender" required>
@@ -99,11 +112,14 @@
 
       				<button class='btn btn-lg btn-success btn-block' type="submit" id='send'>Send!</button>
       			</form>
+      			
+      			<div id='feedback' class='alert hidden'>
+      			</div>
       		</div>
       	</div>
 
       <div class="footer">
-        <p>&copy; Company 2014</p>
+        <p>Please email any bugs to solve.computer.science@gmail.</p>
       </div>
 
     </div> <!-- /container -->
