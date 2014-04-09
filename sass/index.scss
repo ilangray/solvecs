@@ -1,0 +1,75 @@
+
+.jumbotron{
+	padding: 30px;
+
+	&.mission {
+		h2 {
+			display: inline;
+		}
+	}
+
+	&.help {
+		#letter {
+			text-align: left;
+
+			p {
+				font-size: 15px;
+				line-height: 130%;
+			}
+		}
+
+		textarea {
+			height: 200px;
+
+			margin: 20px 0px;
+		}
+
+		input, select {
+			display: inline;
+		}
+
+		#dont-worry, #edit {
+			color: gray;
+			font-style: italic;
+		}
+
+		p.inline {
+			input {
+				background-color: transparent;
+				border: none;
+				border-bottom: 1px solid gray;
+			}
+		}
+
+		input {
+			height: 30px;
+   			font-size: 15px;
+   			line-height: 15px;
+
+			@extend .input-sm;
+			@extend .form-control;
+
+			width: 150px;
+
+			text-align: center;
+		}
+
+		#sender {
+			width: 100%;
+		}
+
+		.text {
+			display: none;
+		}
+
+		#error-msg {
+			display:none;
+			color: red;
+		}
+
+		#edit {
+			display: none;
+			text-align: center;
+		}
+	}
+}

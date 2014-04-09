@@ -1,0 +1,11 @@
+{
+    "applications": {
+        "Solve": {
+            "applicationId": "zlgssjUVu5stxxijmZro6NUNpFDgetAiYt8DVc77", 
+            "masterKey": "Iu5oKSLyKQqLLcI2xTSxEHtvsJGy7Bi4mhk7kN6j"
+        }, 
+        "_default": {
+            "link": "Solve"
+        }
+    }
+}
